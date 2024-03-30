@@ -7,33 +7,38 @@ export const ModalContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  background: darkblue;
+  background: ${({ theme }) => theme.colors.background.primary};
 `;
 
 export const ModalTitle = styled.h2`
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   font-size: 32px;
   line-height: 36px;
-  color: white;
+  color: ${({ theme }) => theme.colors.basic.primary};
 `;
 
 export const ModalDescription = styled.p`
-  font-family: roboto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 16px;
   line-height: 22px;
-  color: grey;
+  color: ${({ theme }) => theme.colors.basic.secondary};
 `;
 
 export const CloseButton = styled.button`
-  height: 50px;
-  width: 50px;
-  color: red;
+  height: 96px;
+  width: 96px;
+  color: ${({ theme }) => theme.colors.basic.strokes};
+  cursor: pointer;
+  background: transparent;
+  border: none;
 `;
 
 export const ModalLeftSide = styled.div`
   box-sizing: border-box;
   width: 560px;
-  background: purple;
+  background: ${({ theme }) => theme.colors.background.secondary};
   padding: 96px;
   display: flex;
   flex-direction: column;
