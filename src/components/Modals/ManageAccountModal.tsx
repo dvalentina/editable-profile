@@ -1,11 +1,4 @@
-import Modal from '../Modal';
-import {
-  ModalDescription,
-  ModalLeftSide,
-  ModalLeftSideContentContainer,
-  ModalTitle,
-  ModalRightSide,
-} from '../Modal/Modal.styled';
+import EditSettingsModal from '../EditSettingsModal';
 
 interface IManageAccountModal {
   isOpen: boolean;
@@ -14,24 +7,20 @@ interface IManageAccountModal {
 
 function ManageAccountModal({ isOpen, onClose }: IManageAccountModal) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalLeftSide>
-        <ModalLeftSideContentContainer>
-          <ModalTitle>Manage account</ModalTitle>
-          <ModalDescription>
-            It will take a couple of minutes. Change profile settings and
-            confirm with SMS code
-          </ModalDescription>
-        </ModalLeftSideContentContainer>
-      </ModalLeftSide>
-      <ModalRightSide>
-        <ModalTitle>Edit profile</ModalTitle>
-        <ModalDescription>
-          It will take a couple of minutes. Change profile settings and confirm
-          with SMS code
-        </ModalDescription>
-      </ModalRightSide>
-    </Modal>
+    <EditSettingsModal
+      isOpen={isOpen}
+      onClose={onClose}
+      leftInfo={{
+        title: 'Manage account',
+        description:
+          'It will take a couple of minutes. Change profile settings and confirm with SMS code',
+      }}
+      rightInfo={{
+        title: 'Edit profile',
+        description:
+          'It will take a couple of minutes. Change profile settings and confirm with SMS code',
+      }}
+    />
   );
 }
 

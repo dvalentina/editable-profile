@@ -3,10 +3,13 @@ import ManageAccountModal from '../Modals/ManageAccountModal';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme } from '../../themes/darkTheme.tsx';
 import { lightTheme } from '../../themes/lightTheme.tsx';
+import EditInvestTermsModal from '../Modals/EditInvestTermsModal.tsx';
 
 function App() {
   const [theme, setTheme] = useState(darkTheme);
   const [isManageAccountModalOpen, setIsManageAccountModalOpen] =
+    useState(false);
+  const [isEditInvestTermsModalOpen, setIsEditInvestTermsModalOpen] =
     useState(false);
 
   const handleChooseTheme = (event: React.MouseEvent) => {
@@ -24,6 +27,14 @@ function App() {
 
   const handleManageAccountModalClose = () => {
     setIsManageAccountModalOpen(false);
+  };
+
+  const handleEditInvestTermsButtonClick = () => {
+    setIsEditInvestTermsModalOpen(true);
+  };
+
+  const handleEditInvestTermsModalClose = () => {
+    setIsEditInvestTermsModalOpen(false);
   };
 
   return (
@@ -57,6 +68,14 @@ function App() {
         <ManageAccountModal
           isOpen={isManageAccountModalOpen}
           onClose={handleManageAccountModalClose}
+        />
+
+        <button onClick={handleEditInvestTermsButtonClick}>
+          Edit invest terms
+        </button>
+        <EditInvestTermsModal
+          isOpen={isEditInvestTermsModalOpen}
+          onClose={handleEditInvestTermsModalClose}
         />
       </div>
     </ThemeProvider>

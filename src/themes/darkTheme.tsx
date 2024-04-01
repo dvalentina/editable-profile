@@ -28,7 +28,7 @@ export const darkTheme: Theme = {
       warning: '#E1A023',
     },
     brand: {
-      linear: 'linear-gradient(#BEDCFF, #8EB5FF, #C6B3FF)',
+      linear: 'linear-gradient(#BEDCFF 0%, #8EB5FF 41%, #C6B3FF 100%)',
     },
   },
 };

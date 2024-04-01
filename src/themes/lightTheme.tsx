@@ -29,7 +29,7 @@ export const lightTheme: Theme = {
       warning: '#FFB800',
     },
     brand: {
-      linear: 'linear-gradient(#9ECBFF, #6FA0FF, #AF93FF)',
+      linear: 'linear-gradient(#9ECBFF 0%, #6FA0FF 41%, #AF93FF 100%)',
     },
   },
 };

@@ -10,7 +10,31 @@ export const ModalContainer = styled.div`
   background: ${({ theme }) => theme.colors.background.primary};
 `;
 
-export const ModalTitle = styled.h2`
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  svg {
+    padding: 1px;
+    clip-path: url(#logo);
+    background-image: ${({ theme }) => theme.colors.brand.linear};
+  }
+`;
+
+export const LogoText = styled.p`
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.basic.primary};
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
+
+export const Title = styled.h2`
+  margin: 0;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 32px;
@@ -18,7 +42,8 @@ export const ModalTitle = styled.h2`
   color: ${({ theme }) => theme.colors.basic.primary};
 `;
 
-export const ModalDescription = styled.p`
+export const Description = styled.p`
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -33,9 +58,10 @@ export const CloseButton = styled.button`
   cursor: pointer;
   background: transparent;
   border: none;
+  padding: 0;
 `;
 
-export const ModalLeftSide = styled.div`
+export const LeftContainer = styled.div`
   box-sizing: border-box;
   width: 560px;
   background: ${({ theme }) => theme.colors.background.secondary};
@@ -45,18 +71,24 @@ export const ModalLeftSide = styled.div`
   gap: 64px;
 `;
 
-export const ModalLeftSideContentContainer = styled.div`
+export const LeftInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 36px;
   gap: 16px;
 `;
 
-export const ModalRightSide = styled.div`
+export const RightContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 96px;
+`;
+
+export const RightInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
 
 export const ActionButtonsContainer = styled.div`
