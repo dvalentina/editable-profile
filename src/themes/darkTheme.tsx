@@ -20,7 +20,7 @@ export const darkTheme: Theme = {
       primary: '#16162A',
     },
     accent: {
-      primary: '#16162A',
+      primary: '#5C7AE5',
       secondary: '#5872CF',
     },
     notifications: {
