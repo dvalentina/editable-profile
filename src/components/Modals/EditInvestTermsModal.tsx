@@ -19,6 +19,10 @@ function EditInvestTermsModal({ isOpen, onClose }: IEditInvestTermsModal) {
         title: 'ID 001894',
         description: 'Signed on 05.10.2020',
       }}
+      notification={{
+        status: 'error',
+        text: 'After changes you will need to sign a new document',
+      }}
     />
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ModalContainer,
   CloseButton,
@@ -15,10 +15,16 @@ import {
 } from './EditSettingsModal.styled';
 import { ReactComponent as LogoIcon } from '../../assets/Logo.svg';
 import { ReactComponent as CloseIcon } from '../../assets/CloseIcon.svg';
+import Notification from '../Notification';
 
 interface IInfo {
   title: string;
   description: string;
+}
+
+interface INotification {
+  status: 'error' | 'warning';
+  text: string;
 }
 
 interface IEditSettingsModal {
@@ -27,6 +33,7 @@ interface IEditSettingsModal {
   children?: React.ReactNode;
   leftInfo: IInfo;
   rightInfo: IInfo;
+  notification?: INotification;
 }
 
 function EditSettingsModal({
@@ -34,7 +41,14 @@ function EditSettingsModal({
   onClose,
   leftInfo,
   rightInfo,
+  notification,
 }: IEditSettingsModal) {
+  const [isNotifVisible, setIsNotifVisible] = useState(!!notification);
+
+  const handleCloseNotification = () => {
+    setIsNotifVisible(false);
+  };
+
   return isOpen ? (
     <ModalContainer>
       <LeftContainer>
@@ -45,6 +59,13 @@ function EditSettingsModal({
         <LeftInfoContainer>
           <Title>{leftInfo.title}</Title>
           <Description>{leftInfo.description}</Description>
+          {notification && isNotifVisible ? (
+            <Notification
+              status={notification.status}
+              text={notification.text}
+              onClose={handleCloseNotification}
+            />
+          ) : null}
         </LeftInfoContainer>
       </LeftContainer>
       <RightContainer>

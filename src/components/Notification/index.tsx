@@ -8,7 +8,7 @@ import { ReactComponent as CloseIcon } from '../../assets/CloseIcon.svg';
 import { ReactComponent as WarningIcon } from '../../assets/WarningIcon.svg';
 import { ReactComponent as ErrorIcon } from '../../assets/ErrorIcon.svg';
 
-interface INotification {
+export interface INotification {
   status: 'warning' | 'error';
   text: string;
   onClose: () => void;

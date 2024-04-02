@@ -20,6 +20,10 @@ function ManageAccountModal({ isOpen, onClose }: IManageAccountModal) {
         description:
           'It will take a couple of minutes. Change profile settings and confirm with SMS code',
       }}
+      notification={{
+        status: 'warning',
+        text: 'After changes a new verification will be needed',
+      }}
     />
   );
 }
