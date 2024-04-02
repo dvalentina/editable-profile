@@ -5,6 +5,7 @@ import {
   LogoContainer,
   LogoText,
   RightInfoContainer,
+  ActionButtonsContainer,
 } from './EditSettingsModal.styled';
 import {
   Description,
@@ -16,6 +17,7 @@ import {
 import { ReactComponent as LogoIcon } from '../../assets/Logo.svg';
 import { ReactComponent as CloseIcon } from '../../assets/CloseIcon.svg';
 import Notification from '../Notification';
+import Button from '../Button/Button';
 
 interface IInfo {
   title: string;
@@ -73,6 +75,10 @@ function EditSettingsModal({
           <Title>{rightInfo.title}</Title>
           <Description>{rightInfo.description}</Description>
         </RightInfoContainer>
+        <ActionButtonsContainer>
+          <Button variant='secondary' label='Cancel' onClick={() => {}} />
+          <Button variant='primary' label='Save Changes' onClick={() => {}} />
+        </ActionButtonsContainer>
       </RightContainer>
       <CloseButton onClick={onClose}>
         <CloseIcon />

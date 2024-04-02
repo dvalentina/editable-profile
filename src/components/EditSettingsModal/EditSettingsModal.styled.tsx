@@ -94,4 +94,5 @@ export const RightInfoContainer = styled.div`
 export const ActionButtonsContainer = styled.div`
   display: flex;
   gap: 16px;
+  margin-top: auto;
 `;
