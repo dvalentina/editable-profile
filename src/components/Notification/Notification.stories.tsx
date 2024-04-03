@@ -5,7 +5,7 @@ import { fn } from '@storybook/test';
 import Notification from '.';
 
 const meta: Meta<typeof Notification> = {
-  title: 'Notification',
+  title: 'Atoms/Notification',
   component: Notification,
   tags: ['autodocs'],
 };

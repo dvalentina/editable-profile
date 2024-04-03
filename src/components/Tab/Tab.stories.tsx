@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import styled from 'styled-components';
-import Button from './Button';
-import { fn } from '@storybook/test';
+import Tab from './Tab';
 
-const meta: Meta<typeof Button> = {
-  title: 'Atoms/Button',
-  component: Button,
+const meta: Meta<typeof Tab> = {
+  title: 'Molecules/Tabs/Tab',
+  component: Tab,
   tags: ['autodocs'],
 };
 
@@ -22,13 +21,12 @@ const Container = styled.div`
 
 export const Default: Story = {
   args: {
-    variant: 'primary',
-    label: 'Button',
-    onClick: fn(),
+    label: 'Personal',
+    chosen: false,
   },
   render: (args) => (
     <Container>
-      <Button {...args} />
+      <Tab {...args} />
     </Container>
   ),
 };
