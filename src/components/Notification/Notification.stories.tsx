@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 import { fn } from '@storybook/test';
 
-import Notification from '.';
+import Notification from './Notification';
 
 const meta: Meta<typeof Notification> = {
   title: 'Atoms/Notification',
@@ -23,6 +23,7 @@ export const Default: Story = {
     text: 'After changes a new verification will be needed',
     status: 'error',
     onClose: fn(),
+    isVisible: true,
   },
   render: (args) => (
     <Container>

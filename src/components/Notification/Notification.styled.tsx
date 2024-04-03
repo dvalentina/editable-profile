@@ -1,14 +1,23 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface IContainer {
+  $visible: boolean;
+  $display: boolean;
+}
+
+export const Container = styled.div<IContainer>`
+  display: ${({ $display }) => ($display ? 'flex' : 'none')};
+
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.background.thriary};
   width: 100%;
   height: fit-content;
   box-sizing: border-box;
   padding: 16px;
-  display: flex;
   gap: 16px;
+
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transition: opacity 0.15s ease-in;
 `;
 
 interface IStatus {
@@ -32,15 +41,27 @@ export const CloseIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
   color: ${({ theme }) => theme.colors.basic.thriary};
   margin-left: auto;
+  padding: 0;
   cursor: pointer;
+  border-radius: 4px;
 
   svg {
     width: 14px;
     height: 14px;
+  }
+
+  transition:
+    background 0.15s,
+    color 0.15s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.notifications.error};
+    color: ${({ theme }) => theme.colors.basic.white};
   }
 `;
 

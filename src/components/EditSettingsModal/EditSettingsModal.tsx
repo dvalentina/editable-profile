@@ -16,7 +16,7 @@ import {
 } from './EditSettingsModal.styled';
 import { ReactComponent as LogoIcon } from '../../assets/Logo.svg';
 import { ReactComponent as CloseIcon } from '../../assets/CloseIcon.svg';
-import Notification from '../Notification';
+import Notification from '../Notification/Notification';
 import Button from '../Button/Button';
 
 interface IInfo {
@@ -61,11 +61,12 @@ function EditSettingsModal({
         <LeftInfoContainer>
           <Title>{leftInfo.title}</Title>
           <Description>{leftInfo.description}</Description>
-          {notification && isNotifVisible ? (
+          {notification ? (
             <Notification
               status={notification.status}
               text={notification.text}
               onClose={handleCloseNotification}
+              isVisible={isNotifVisible}
             />
           ) : null}
         </LeftInfoContainer>
