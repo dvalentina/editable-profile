@@ -1,4 +1,4 @@
-import EditSettingsModal from '../EditSettingsModal';
+import EditSettingsModal from '../EditSettingsModal/EditSettingsModal';
 
 interface IEditInvestTermsModal {
   isOpen: boolean;

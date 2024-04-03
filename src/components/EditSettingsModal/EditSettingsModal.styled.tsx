@@ -54,11 +54,20 @@ export const Description = styled.p`
 export const CloseButton = styled.button`
   height: 96px;
   width: 96px;
+  flex-shrink: 0;
   color: ${({ theme }) => theme.colors.basic.strokes};
   cursor: pointer;
   background: transparent;
   border: none;
   padding: 0;
+  transition:
+    background 0.1s ease-out,
+    color 0.1s ease-out;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.notifications.error};
+    color: ${({ theme }) => theme.colors.basic.white};
+  }
 `;
 
 export const LeftContainer = styled.div`
