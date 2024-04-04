@@ -23,6 +23,7 @@ function EditInvestTermsModal({ isOpen, onClose }: IEditInvestTermsModal) {
         status: 'error',
         text: 'After changes you will need to sign a new document',
       }}
+      tabLabels={['Amount', 'Duration']}
     />
   );
 }

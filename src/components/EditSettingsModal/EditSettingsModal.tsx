@@ -18,6 +18,7 @@ import { ReactComponent as LogoIcon } from '../../assets/Logo.svg';
 import { ReactComponent as CloseIcon } from '../../assets/CloseIcon.svg';
 import Notification from '../Notification/Notification';
 import Button from '../Button/Button';
+import TabGroup from '../TabGroup/TabGroup';
 
 interface IInfo {
   title: string;
@@ -36,6 +37,7 @@ interface IEditSettingsModal {
   leftInfo: IInfo;
   rightInfo: IInfo;
   notification?: INotification;
+  tabLabels: string[];
 }
 
 function EditSettingsModal({
@@ -44,11 +46,17 @@ function EditSettingsModal({
   leftInfo,
   rightInfo,
   notification,
+  tabLabels,
 }: IEditSettingsModal) {
   const [isNotifVisible, setIsNotifVisible] = useState(!!notification);
+  const [chosenTab, setChosenTab] = useState(tabLabels[0]);
 
   const handleCloseNotification = () => {
     setIsNotifVisible(false);
+  };
+
+  const handleChooseTab = (label: string) => {
+    setChosenTab(label);
   };
 
   return isOpen ? (
@@ -75,6 +83,11 @@ function EditSettingsModal({
         <RightInfoContainer>
           <Title>{rightInfo.title}</Title>
           <Description>{rightInfo.description}</Description>
+          <TabGroup
+            labels={tabLabels}
+            chosen={chosenTab}
+            handleChange={handleChooseTab}
+          />
         </RightInfoContainer>
         <ActionButtonsContainer>
           <Button variant='secondary' label='Cancel' onClick={() => {}} />

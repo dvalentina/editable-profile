@@ -24,6 +24,7 @@ function ManageAccountModal({ isOpen, onClose }: IManageAccountModal) {
         status: 'warning',
         text: 'After changes a new verification will be needed',
       }}
+      tabLabels={['Personal', 'Company']}
     />
   );
 }
