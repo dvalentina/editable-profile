@@ -29,16 +29,16 @@ function TabGroup({ labels, chosen, handleChange }: ITabGroup) {
   }, [labels]);
 
   useEffect(() => {
-    // Make the glider's width same as the width of the first tab
-    const firstTabRef = tabsRefs[labels[0]];
-    if (firstTabRef) {
-      const firstTabRect = firstTabRef.current?.getBoundingClientRect();
+    // Make the glider's width same as the width of the chosen tab
+    const chosenTabRef = tabsRefs[chosen];
+    if (chosenTabRef) {
+      const chosenTabRect = chosenTabRef.current?.getBoundingClientRect();
 
-      if (firstTabRect && gliderRef.current) {
-        gliderRef.current.style.width = `${firstTabRect?.width}px`;
+      if (chosenTabRect && gliderRef.current) {
+        gliderRef.current.style.width = `${chosenTabRect?.width}px`;
       }
     }
-  }, [tabsRefs]);
+  }, [tabsRefs, chosen]);
 
   const handleTabClick = (label: string) => {
     handleChange(label);
