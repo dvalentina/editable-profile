@@ -49,4 +49,31 @@ export const Container = styled.button<IButton>`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+
+  position: relative;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: ${({ theme }) =>
+      `0px 0px 0px 4px ${theme.colors.accent.primary}`};
+    border: ${({ theme, $variant }) => {
+      switch ($variant) {
+        case 'primary':
+          return `1px solid ${theme.colors.background.contrast}`;
+        case 'secondary':
+          return `1px solid ${theme.colors.accent.primary}`;
+        case 'accent':
+          return `1px solid ${theme.colors.accent.primary}`;
+      }
+    }};
+    transition:
+      box-shadow 0.3s,
+      border 0.3s;
+  }
+
+  &:active {
+    box-shadow: ${({ theme }) =>
+      `0px 0px 0px 2px ${theme.colors.accent.primary}`};
+    transition: box-shadow 0.1s;
+  }
 `;
