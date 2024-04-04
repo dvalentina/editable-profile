@@ -28,30 +28,8 @@ function TabGroup({ labels, chosen, handleChange }: ITabGroup) {
     });
   }, [labels]);
 
-  useEffect(() => {
-    // Make the glider's width same as the width of the chosen tab
-    const chosenTabRef = tabsRefs[chosen];
-    if (chosenTabRef) {
-      const chosenTabRect = chosenTabRef.current?.getBoundingClientRect();
-
-      if (chosenTabRect && gliderRef.current) {
-        gliderRef.current.style.width = `${chosenTabRect?.width}px`;
-      }
-    }
-  }, [tabsRefs, chosen]);
-
   const handleTabClick = (label: string) => {
     handleChange(label);
-    const chosenTabRef = tabsRefs[label];
-
-    const chosenTabRect = chosenTabRef.current?.getBoundingClientRect();
-    const gliderRect = gliderRef.current?.getBoundingClientRect();
-    const tabsContainerRect = tabsContainerRef.current?.getBoundingClientRect();
-
-    if (chosenTabRect && gliderRef.current && gliderRect && tabsContainerRect) {
-      gliderRef.current.style.left = `${chosenTabRect?.left - tabsContainerRect?.left}px`;
-      gliderRef.current.style.width = `${chosenTabRect?.width}px`;
-    }
   };
 
   const tabs = labels.map((label, index) => (
@@ -63,6 +41,23 @@ function TabGroup({ labels, chosen, handleChange }: ITabGroup) {
       ref={tabsRefs[label]}
     />
   ));
+
+  useEffect(() => {
+    const chosenTabRef = tabsRefs[chosen];
+
+    if (!chosenTabRef) {
+      return;
+    }
+
+    const chosenTabRect = chosenTabRef.current?.getBoundingClientRect();
+    const gliderRect = gliderRef.current?.getBoundingClientRect();
+    const tabsContainerRect = tabsContainerRef.current?.getBoundingClientRect();
+
+    if (chosenTabRect && gliderRef.current && gliderRect && tabsContainerRect) {
+      gliderRef.current.style.left = `${chosenTabRect?.left - tabsContainerRect?.left}px`;
+      gliderRef.current.style.width = `${chosenTabRect?.width}px`;
+    }
+  }, [tabsRefs, chosen]);
 
   return (
     <Container ref={tabsContainerRef}>
